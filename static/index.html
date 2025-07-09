@@ -8,13 +8,15 @@
       * {
         box-sizing: border-box;
       }
-      html,
-      body {
+      html {
         height: 100%;
+        overflow: hidden;
         margin: 0;
         padding: 0;
         background-color: #000;
         font-family: sans-serif;
+        display: flex;
+        flex-direction: column;
       }
       body {
         overflow: hidden;
@@ -22,6 +24,7 @@
         flex-direction: column;
         gap: 8px;
         margin: 8px;
+        flex: 1;
       }
       .row {
         display: flex;
@@ -34,12 +37,17 @@
         color: #ccc;
         padding: 1rem;
         border-radius: 0.5rem;
-        font-size: 2vh;
+        font-size: 2.5vh;
         cursor: pointer;
         flex: 1;
         display: flex;
         justify-content: center;
         align-items: center;
+      }
+
+      .dir,
+      .pad {
+        position: relative;
       }
 
       .dir {
@@ -54,6 +62,73 @@
       .pad.highlighted {
         background-color: #333;
       }
+      .grad {
+        position: absolute;
+        bottom: 5%;
+        left: 5%;
+        width: 90%;
+        height: 5%;
+        border-radius: 0.5rem;
+      }
+      .pad[data-preset="sunset"] .grad {
+        background: linear-gradient(
+          90deg,
+          rgb(0, 0, 255) 0%,
+          rgb(128, 0, 128) 25%,
+          rgb(255, 0, 0) 50%,
+          rgb(255, 40, 0) 75%,
+          rgb(255, 200, 0) 100%
+        );
+      }
+      .pad[data-preset="peach"] .grad {
+        background: linear-gradient(
+          90deg,
+          rgb(255, 40, 0) 0%,
+          rgb(128, 0, 128) 33%,
+          rgb(0, 199, 140) 66%,
+          rgb(0, 255, 0) 99%
+        );
+      }
+      .pad[data-preset="fire"] .grad {
+        background: linear-gradient(
+          90deg,
+          rgb(255, 40, 0) 0%,
+          rgb(255, 0, 0) 100%
+        );
+      }
+      .pad[data-preset="rgb"] .grad {
+        background: linear-gradient(
+          90deg,
+          rgb(255, 0, 0) 0%,
+          rgb(255, 0, 0) 33%,
+          rgb(0, 255, 0) 33%,
+          rgb(0, 255, 0) 66%,
+          rgb(0, 0, 255) 66%,
+          rgb(0, 0, 255) 100%
+        );
+      }
+      .pad[data-preset="rtb"] .grad {
+        background: linear-gradient(
+          90deg,
+          rgb(255, 0, 0) 0%,
+          rgb(255, 0, 0) 33%,
+          rgb(0, 165, 255) 33%,
+          rgb(0, 165, 255) 66%,
+          rgb(0, 0, 255) 66%,
+          rgb(0, 0, 255) 100%
+        );
+      }
+      .pad[data-preset="rpb"] .grad {
+        background: linear-gradient(
+          90deg,
+          rgb(255, 0, 0) 0%,
+          rgb(255, 0, 0) 33%,
+          rgb(116, 0, 255) 33%,
+          rgb(116, 0, 255) 66%,
+          rgb(0, 0, 255) 66%,
+          rgb(0, 0, 255) 100%
+        );
+      }
     </style>
   </head>
   <body>
@@ -65,36 +140,58 @@
     </div>
     <div class="row">
       <div class="pad" data-effect="power" data-preset="sunset">
-        Power Sunset
+        Power
+        <div class="grad"></div>
       </div>
-      <div class="pad" data-effect="power" data-preset="peach">Power Peach</div>
-      <div class="pad" data-effect="power" data-preset="fire">Power Fire</div>
+      <div class="pad" data-effect="power" data-preset="peach">
+        Power
+        <div class="grad"></div>
+      </div>
+      <div class="pad" data-effect="power" data-preset="fire">
+        Power
+        <div class="grad"></div>
+      </div>
     </div>
     <div class="row">
       <div class="pad" data-effect="wavelength" data-preset="sunset">
-        Wavelength Sunset
+        Wavelength
+        <div class="grad"></div>
       </div>
       <div class="pad" data-effect="wavelength" data-preset="peach">
-        Wavelength Peach
+        Wavelength
+        <div class="grad"></div>
       </div>
       <div class="pad" data-effect="wavelength" data-preset="fire">
-        Wavelength Fire
+        Wavelength
+        <div class="grad"></div>
       </div>
     </div>
     <div class="row">
-      <div class="pad" data-effect="energy" data-preset="rgb">Energy RGB</div>
-      <div class="pad" data-effect="energy" data-preset="rtb">Energy RTB</div>
-      <div class="pad" data-effect="energy" data-preset="rpb">Energy RPB</div>
+      <div class="pad" data-effect="energy" data-preset="rgb">
+        Energy
+        <div class="grad"></div>
+      </div>
+      <div class="pad" data-effect="energy" data-preset="rtb">
+        Energy
+        <div class="grad"></div>
+      </div>
+      <div class="pad" data-effect="energy" data-preset="rpb">
+        Energy
+        <div class="grad"></div>
+      </div>
     </div>
     <div class="row">
       <div class="pad" data-effect="scan_multi" data-preset="rgb">
-        scan_multi RGB
+        Scan
+        <div class="grad"></div>
       </div>
       <div class="pad" data-effect="scan_multi" data-preset="rtb">
-        scan_multi RTB
+        Scan
+        <div class="grad"></div>
       </div>
       <div class="pad" data-effect="scan_multi" data-preset="rpb">
-        scan_multi RPB
+        Scan
+        <div class="grad"></div>
       </div>
     </div>
     <script src="app.js"></script>
