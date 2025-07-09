@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Crystals Controller</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        background-color: #000;
+        font-family: sans-serif;
+      }
+      body {
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        margin: 8px;
+      }
+      .row {
+        display: flex;
+        flex-direction: row;
+        gap: 8px;
+        flex: 1;
+      }
+      .row .dir,
+      .row .pad {
+        color: #ccc;
+        padding: 1rem;
+        border-radius: 0.5rem;
+        font-size: 2vh;
+        cursor: pointer;
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .dir {
+        background-color: #223;
+      }
+      .pad {
+        background-color: #222;
+      }
+      .dir.highlighted {
+        background-color: #334;
+      }
+      .pad.highlighted {
+        background-color: #333;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="row">
+      <div class="dir" data-dir="up">⬆️</div>
+      <div class="dir" data-dir="down">⬇️</div>
+      <div class="dir" data-dir="in">↔️</div>
+      <div class="dir" data-dir="out">↕️</div>
+    </div>
+    <div class="row">
+      <div class="pad" data-effect="power" data-preset="sunset">
+        Power Sunset
+      </div>
+      <div class="pad" data-effect="power" data-preset="peach">Power Peach</div>
+      <div class="pad" data-effect="power" data-preset="fire">Power Fire</div>
+    </div>
+    <div class="row">
+      <div class="pad" data-effect="wavelength" data-preset="sunset">
+        Wavelength Sunset
+      </div>
+      <div class="pad" data-effect="wavelength" data-preset="peach">
+        Wavelength Peach
+      </div>
+      <div class="pad" data-effect="wavelength" data-preset="fire">
+        Wavelength Fire
+      </div>
+    </div>
+    <div class="row">
+      <div class="pad" data-effect="energy" data-preset="rgb">Energy RGB</div>
+      <div class="pad" data-effect="energy" data-preset="rtb">Energy RTB</div>
+      <div class="pad" data-effect="energy" data-preset="rpb">Energy RPB</div>
+    </div>
+    <div class="row">
+      <div class="pad" data-effect="scan_multi" data-preset="rgb">
+        scan_multi RGB
+      </div>
+      <div class="pad" data-effect="scan_multi" data-preset="rtb">
+        scan_multi RTB
+      </div>
+      <div class="pad" data-effect="scan_multi" data-preset="rpb">
+        scan_multi RPB
+      </div>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>
